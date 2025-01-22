@@ -15,7 +15,7 @@ public class ListAllProductsSubMenuStrategy extends MenuStrategy {
             new ListAllProductsStrategy(2, "Clothes"),
             new ListAllProductsStrategy(3, "Entertainment"),
             new ListAllProductsStrategy(4, "Other"),
-            new ListAllProductsStrategy(5,"All"),
+            new ListAllProductsStrategy(5, "All"),
             new BackStrategy(6, "Back")
     );
 
@@ -29,8 +29,8 @@ public class ListAllProductsSubMenuStrategy extends MenuStrategy {
             System.out.println("Choose the type of purchase");
             printMenu();
             int option = scanner.nextInt();
-            boolean shouldExit =  executeProvider(option, purchaseList, wrapper);
-            if (shouldExit){
+            boolean shouldExit = executeProvider(option, purchaseList, wrapper);
+            if (shouldExit) {
                 break;
             }
         }

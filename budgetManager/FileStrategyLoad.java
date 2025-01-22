@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class FileStrategyLoad extends MenuStrategy{
+public class FileStrategyLoad extends MenuStrategy {
     public FileStrategyLoad(int order, String operationName) {
         super(order, operationName);
     }
@@ -18,10 +18,9 @@ public class FileStrategyLoad extends MenuStrategy{
             Double inc = Double.parseDouble(content.get(0));
             income.setIncome(inc);
 
-            for (int i =1;i<content.size();i++){
-                String [] arr = content.get(i).split(";");
+            for (int i = 1; i < content.size(); i++) {
+                String[] arr = content.get(i).split(";");
                 purchaseList.add(new Purchase(arr[1], CategoriesEnum.valueOf(arr[0]), Double.parseDouble(arr[2])));
-               // income.setIncome(income.getIncome() - Double.parseDouble(arr[2]));
             }
             System.out.println("Purchases were loaded!");
 

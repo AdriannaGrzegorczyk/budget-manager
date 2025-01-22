@@ -11,9 +11,9 @@ public class MainMenuStrategyProvider {
             new PurchaseSubMenuStrategy(2, "Add purchase"),
             new ListAllProductsSubMenuStrategy(3, "Show list of purchases"),
             new BalanceStrategy(4, "Balance"),
-            new FileStrategySave(5,  "Save"),
-            new FileStrategyLoad(6,  "Load"),
-            new SortingSubMenuStrategy (7, "Analyze (sort)"),
+            new FileStrategySave(5, "Save"),
+            new FileStrategyLoad(6, "Load"),
+            new SortingSubMenuStrategy(7, "Analyze (sort)"),
             new BackStrategy(0, "Exit")
     );
 

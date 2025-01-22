@@ -3,7 +3,7 @@ package budgetManager;
 import java.util.List;
 import java.util.Map;
 
-public class BackStrategy extends MenuStrategy{
+public class BackStrategy extends MenuStrategy {
     public BackStrategy(int order, String operationName) {
         super(order, operationName);
     }

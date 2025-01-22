@@ -7,9 +7,9 @@ public enum CategoriesEnum {
     ENTERTAINMENT("Entertainment"),
     OTHER("Other");
 
-    String  nameOfCategory;
+    String nameOfCategory;
 
-    CategoriesEnum(String nameOfCategory){
+    CategoriesEnum(String nameOfCategory) {
         this.nameOfCategory = nameOfCategory;
     }
 
@@ -17,9 +17,9 @@ public enum CategoriesEnum {
         return nameOfCategory;
     }
 
-    public static CategoriesEnum getEnumByName (String input){
+    public static CategoriesEnum getEnumByName(String input) {
         for (CategoriesEnum categoriesEnum : values()) {
-            if(categoriesEnum.nameOfCategory.equals(input)){
+            if (categoriesEnum.nameOfCategory.equals(input)) {
                 return categoriesEnum;
             }
         }

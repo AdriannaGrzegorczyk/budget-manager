@@ -7,7 +7,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         MainMenuStrategyProvider provider = new MainMenuStrategyProvider();
-       List<Purchase> purchaseList = new LinkedList<>();
+        List<Purchase> purchaseList = new LinkedList<>();
         IncomeWrapper incomeWrapper = new IncomeWrapper();
 
         while (true) {

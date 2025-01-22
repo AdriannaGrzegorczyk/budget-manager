@@ -2,7 +2,7 @@ package budgetManager;
 
 public class IncomeWrapper {
 
-    private double income=0;
+    private double income = 0;
 
     public double getIncome() {
         return income;

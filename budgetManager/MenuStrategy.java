@@ -3,22 +3,22 @@ package budgetManager;
 import java.util.List;
 import java.util.Map;
 
-public  abstract class MenuStrategy {
+public abstract class MenuStrategy {
 
     protected int order;
 
-    protected  String operationName;
+    protected String operationName;
 
     public MenuStrategy(int order, String operationName) {
         this.order = order;
         this.operationName = operationName;
     }
 
-    public int getOrder(){
+    public int getOrder() {
         return order;
     }
 
-    public String getOperationName(){
+    public String getOperationName() {
         return operationName;
     }
 

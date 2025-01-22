@@ -11,8 +11,9 @@ public class PurchaseStrategy extends MenuStrategy {
 
     public PurchaseStrategy(int order, String operationName) {
         super(order, operationName);
-       categoriesEnum =  CategoriesEnum.getEnumByName(this.operationName);
+        categoriesEnum = CategoriesEnum.getEnumByName(this.operationName);
     }
+
     @Override
     boolean executeStrategy(List<Purchase> purchaseList, IncomeWrapper income) {
         System.out.println("Enter purchase name:");
@@ -23,7 +24,7 @@ public class PurchaseStrategy extends MenuStrategy {
         System.out.println("Purchase was added!");
         Purchase purchase = new Purchase(productName, this.categoriesEnum, price);
         purchaseList.add(purchase);
-        income.setIncome(income.getIncome()-price);
+        income.setIncome(income.getIncome() - price);
 
         return false;
     }

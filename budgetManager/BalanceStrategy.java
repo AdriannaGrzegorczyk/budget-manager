@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
-public class BalanceStrategy  extends  MenuStrategy{
+public class BalanceStrategy extends MenuStrategy {
 
     public BalanceStrategy(int order, String operationName) {
         super(order, operationName);

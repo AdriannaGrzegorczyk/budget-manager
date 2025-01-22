@@ -55,14 +55,14 @@ public class SortingSubMenuStrategy extends MenuStrategy {
 
         @Override
         boolean executeStrategy(List<Purchase> purchaseList, IncomeWrapper income) {
-            if  (purchaseList.isEmpty()){
+            if (purchaseList.isEmpty()) {
                 System.out.println("The purchase list is empty!");
                 return false;
             }
             purchaseList.sort(Comparator.comparingDouble(Purchase::getPrice).reversed());
 
             System.out.println("All:");
-            for (Purchase purchase : purchaseList){
+            for (Purchase purchase : purchaseList) {
                 System.out.println(purchase.getName() + " " + purchase.getPrice());
             }
             return false;
@@ -75,25 +75,28 @@ public class SortingSubMenuStrategy extends MenuStrategy {
         public SortByType(int order, String operationName) {
             super(order, operationName);
         }
-//
+
         @Override
         boolean executeStrategy(List<Purchase> purchaseList, IncomeWrapper income) {
-            if  (purchaseList.isEmpty()){
+            if (purchaseList.isEmpty()) {
                 System.out.println("The purchase list is empty!");
                 return false;
             }
 
-            // SELECT categoryType, sum(Price) FROM PRODUCT  GROUP BY  categoryPurchase ORDER BY categoryPurchase DESC
-            Map<CategoriesEnum, Double> map = purchaseList.stream().collect(groupingBy(Purchase::getType))
-                    .entrySet().stream() // Map<Enum List<Purchase>>
-                    .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().stream().mapToDouble(Purchase::getPrice).sum()))
-                    // Map<Enum Double>
-                    .entrySet().stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()))
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                            (e1, e2) -> e1, LinkedHashMap::new));
 
-            System.out.println("Types:");
-            map.entrySet().forEach(type -> System.out.println(type.getKey() + " - " + type.getValue()));
+            Map<CategoriesEnum, Double> sortedMap = purchaseList.stream()
+                    .collect(Collectors.groupingBy(
+                            Purchase::getType,
+                            Collectors.summingDouble(Purchase::getPrice)
+                    ))
+                    .entrySet().stream()
+                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                    .collect(Collectors.toMap(
+                            Map.Entry::getKey,
+                            Map.Entry::getValue,
+                            (e1, e2) -> e1,
+                            LinkedHashMap::new
+                    ));
             return false;
         }
     }

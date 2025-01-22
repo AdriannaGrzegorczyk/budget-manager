@@ -3,7 +3,7 @@ package budgetManager;
 import java.io.*;
 import java.util.List;
 
-public class FileStrategySave extends MenuStrategy{
+public class FileStrategySave extends MenuStrategy {
     public FileStrategySave(int order, String operationName) {
         super(order, operationName);
     }
@@ -11,7 +11,7 @@ public class FileStrategySave extends MenuStrategy{
     @Override
     boolean executeStrategy(List<Purchase> purchaseList, IncomeWrapper income) {
 
-        try (BufferedWriter myWriter = new BufferedWriter(new FileWriter("purchases.txt"))){
+        try (BufferedWriter myWriter = new BufferedWriter(new FileWriter("purchases.txt"))) {
             myWriter.write(Double.toString(income.getIncome()));
             myWriter.newLine();
             for (Purchase purchase : purchaseList) {
