@@ -7,7 +7,7 @@ public enum CategoriesEnum {
     ENTERTAINMENT("Entertainment"),
     OTHER("Other");
 
-    String nameOfCategory;
+    final String nameOfCategory;
 
     CategoriesEnum(String nameOfCategory) {
         this.nameOfCategory = nameOfCategory;
