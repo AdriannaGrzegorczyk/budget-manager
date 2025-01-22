@@ -59,7 +59,8 @@ public class SortingSubMenuStrategy extends MenuStrategy {
                 System.out.println("The purchase list is empty!");
                 return false;
             }
-            purchaseList.sort(Comparator.comparing(Purchase::getPrice));
+            purchaseList.sort(Comparator.comparingDouble(Purchase::getPrice).reversed());
+
             System.out.println("All:");
             for (Purchase purchase : purchaseList){
                 System.out.println(purchase.getName() + " " + purchase.getPrice());
